@@ -1,0 +1,13 @@
+{
+  "name": "vue3-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node vite.js"
+  },
+  "keywords": [],
+  "author": "asd741",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.0"
+}
