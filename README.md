@@ -1,1 +1,1 @@
-直接pnpm dev運行，沒有依賴，不需要node_modules
+測試一些東西，專案拿到手直接pnpm dev

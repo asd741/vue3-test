@@ -1,5 +1,5 @@
-import { activeEffect } from "./effect";
-import { targetMap, track, trigger } from "./dep";
+import { activeEffect } from "./effect.js";
+import { targetMap, track, trigger } from "./dep.js";
 
 export function reactive(target) {
   return new Proxy(target, {

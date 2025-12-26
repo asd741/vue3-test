@@ -7,6 +7,12 @@ const server = http.createServer(async (req, res) => {
   const url = req.url === "/" ? "/index.htm" : req.url;
   console.log(`向伺服器請求資源:${url}`);
   
+  // 處理 favicon.ico 請求（瀏覽器自動請求）
+  if (url === "/favicon.ico") {
+    res.statusCode = 204; // No Content
+    return res.end();
+  }
+  
   const filePath = path.join(__dirname, url); 
   try {
     const content = await fs.readFile(filePath, "utf-8");    
@@ -32,5 +38,5 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(5173, () => {
-  console.log("🚀 引擎已啟動: http://localhost:5173");
+  console.log("server is running on http://localhost:5173");
 });
