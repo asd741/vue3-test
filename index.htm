@@ -15,20 +15,18 @@
   <script type="module">
     import { reactive } from './reactivity/reactive.js';
     import { effect } from './reactivity/effect.js';
-    console.log(effect,'effect??');
-    
     const a = reactive({ a: 0 });
     const c = reactive({ c: 0 });
     let b = 0;
     effect(() => {
-      b = a.a + c.c + 10
+      b = a.a + c.c
     });
     document.getElementById('btn').addEventListener('click', () => {
-      a.a++;
+      a.a += 10;
       console.log(`b:${b}`, `a:${a.a}`);
     });
     document.getElementById('btn2').addEventListener('click', () => {
-      c.c++;
+      c.c += 5;
       console.log(`b:${b}`, `c:${c.c}`);
     });
   </script>

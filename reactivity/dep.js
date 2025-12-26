@@ -1,3 +1,4 @@
+import { activeEffect } from './effect.js';
 export const targetMap = new WeakMap();
 export const track = (target, key) => {
   if (activeEffect) {
@@ -19,6 +20,6 @@ export const trigger = (target, key) => {
   if (!depsMap) return;
   const dep = depsMap.get(key);
   if (dep) {
-    dep.forEach(effect => effect.run());
+    dep.forEach(effect => effect());
   }
 };

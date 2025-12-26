@@ -1,4 +1,6 @@
-export const activeEffect = null;
-export function effect(value) {
-  
+export let activeEffect = null;
+export function effect(fn) {
+    activeEffect = fn;
+    fn();
+    activeEffect = null;
 }
