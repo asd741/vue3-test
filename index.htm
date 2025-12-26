@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app">index.htm~</div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vite App</title>
+</head>
+
+<body>
+  <div id="app">
+    <button id="btn">Add Count A</button>
+    <button id="btn2">Add Count C</button>
+  </div>
+  <script type="module">
+    import { reactive } from './reactivity/reactive.js';
+    import { effect } from './reactivity/effect.js';
+    const a = reactive({ a: 0 });
+    const c = reactive({ c: 0 });
+    let b = 0;
+    effect(() => {
+      b = a.a + c.c + 10
+    });
+    document.getElementById('btn').addEventListener('click', () => {
+      a.a++;
+      console.log(`b:${b}`, `a:${a.a}`);
+    });
+    document.getElementById('btn2').addEventListener('click', () => {
+      c.c++;
+      console.log(`b:${b}`, `c:${c.c}`);
+    });
+  </script>
+</body>
+
 </html>
